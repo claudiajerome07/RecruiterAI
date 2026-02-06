@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Base Reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ---------- Textured Background ---------- */
+.textured-bg {
+  background-color: #EFF6FF;
+  background-image: 
+    radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.3) 2px, transparent 0),
+    radial-gradient(circle at 1px 1px, rgba(165, 216, 255, 0.25) 1px, transparent 0),
+    radial-gradient(circle at 3px 3px, rgba(208, 188, 255, 0.2) 1.5px, transparent 0),
+    radial-gradient(circle at 1px 1px, rgba(177, 151, 252, 0.15) 1px, transparent 0);
+  background-size: 50px 50px, 100px 100px, 75px 75px, 120px 120px;
+  background-position: 0 0, 25px 25px, 50px 50px, 75px 75px;
+}
+
+/* ---------- Glassmorphism Utilities ---------- */
+.glass-effect {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
+}
+
+.glass-effect-strong {
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+}
+
+.glass-effect-dark {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- Light / Dark Glass Helpers ---------- */
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- Simple, Safe Animations ---------- */
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-20px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+/* ---------- Z-Index Safety ---------- */
+.person-bubble {
+  position: relative;
+  z-index: 30;
+}
+
+.person-popover {
+  z-index: 50;
+}
+
+
+/* ---------- Flowchart Styles ---------- */
+
+.flow-node {
+  position: relative;
+  display: inline-block;
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.flow-node--primary {
+  background-color: rgba(191, 219, 254, 0.4);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.3);
+}
+
+.decision-node {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  transform: rotate(45deg);
+  background-color: rgba(233, 213, 255, 0.6);
+  border: 1px solid rgba(147, 51, 234, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.decision-text {
+  transform: rotate(-45deg);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.flow-cta {
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  display: inline-block;
+  min-width: 80px;
+}
+
+.flow-cta--yes {
+  background-color: rgba(191, 219, 254, 0.5);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.flow-cta--no {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(209, 213, 219, 0.5);
+}
+
+.flow-cta--primary {
+  background-color: rgba(59, 130, 246, 0.4);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  color: #1e3a8a;
+}
+
+.glass-panel {
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 20px 40px rgba(59, 130, 246, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
